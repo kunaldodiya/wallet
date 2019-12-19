@@ -88,16 +88,22 @@ trait HasWallet
 
         if ($transaction['status'] === "pending") {
             if ($transaction['transaction_type'] == 'deposit') {
+                $transaction->update(['status' => 'success']);
+
                 $transaction->wallet->balance = $transaction->wallet->balance + $transaction['amount'];
                 $transaction->wallet->save();
             }
 
-            if ($transaction['transaction_type'] == 'withdraw' && $canWithdraw) {
-                $transaction->wallet->balance = $transaction->wallet->balance - $transaction['amount'];
-                $transaction->wallet->save();
-            }
+            if ($transaction['transaction_type'] == 'withdraw') {
+                if ($canWithdraw) {
+                    $transaction->update(['status' => 'success']);
 
-            $transaction->update(['status' => $canWithdraw ? 'success' : 'failed']);
+                    $transaction->wallet->balance = $transaction->wallet->balance - $transaction['amount'];
+                    $transaction->wallet->save();
+                } else {
+                    $transaction->update(['status' => 'failed']);
+                }
+            }
         }
 
         return $transaction;
