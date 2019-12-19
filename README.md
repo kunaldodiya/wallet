@@ -52,7 +52,7 @@ $user = User::find(1);
 $user->balance; // 0
 
 $transaction = $user->createTransaction(100, 'deposit', ['description' => 'transaction description'])
-$user->deposit($transaction->id);
+$user->deposit($transaction->transaction_id);
 $user->balance; // 100
 
 $user->withdraw(50);
