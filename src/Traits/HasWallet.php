@@ -48,19 +48,19 @@ trait HasWallet
         return $this->balance >= $amount;
     }
 
-    public function deposit($transactionId, $status = true)
+    public function deposit($transactionId)
     {
-        return $this->processTransaction($transactionId, $status);
+        return $this->processTransaction($transactionId);
     }
 
-    public function withdraw($transactionId, $status = true)
+    public function withdraw($transactionId)
     {
-        return $this->processTransaction($transactionId, $status, false);
+        return $this->processTransaction($transactionId);
     }
 
-    public function forceWithdraw($transactionId, $status = true)
+    public function forceWithdraw($transactionId)
     {
-        return $this->processTransaction($transactionId, $status, true);
+        return $this->processTransaction($transactionId, true);
     }
 
     public function createTransaction($amount, $type, $meta = [])
@@ -80,21 +80,21 @@ trait HasWallet
             ]);
     }
 
-    protected function processTransaction($transactionId, $status = "pending", $forceWithdraw = false)
+    protected function processTransaction($transactionId, $forceWithdraw = false)
     {
         $transaction = Transaction::where(['transaction_id' => $transactionId])->first();
         $canWithdraw = $forceWithdraw ? true : $this->canWithdraw($transaction['amount']);
 
         if ($transaction['status'] === "pending") {
             if ($transaction['transaction_type'] == 'deposit') {
-                $updateTransaction = $transaction->update(['status' => $status]);
+                $updateTransaction = $transaction->update(['status' => true]);
 
                 $transaction->wallet->balance = $transaction->wallet->balance + $transaction['amount'];
                 $transaction->wallet->save();
             }
 
             if ($transaction['transaction_type'] == 'withdraw' && $canWithdraw) {
-                $updateTransaction = $transaction->update(['status' => $canWithdraw ? $status : 'failed']);
+                $updateTransaction = $transaction->update(['status' => $canWithdraw]);
 
                 $transaction->wallet->balance = $transaction->wallet->balance - $transaction['amount'];
                 $transaction->wallet->save();
