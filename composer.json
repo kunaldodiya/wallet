@@ -1,0 +1,35 @@
+{
+  "name": "krunaldodiya/wallet",
+  "description": "Laravel Wallet",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "krunaldodiya",
+      "email": "kunal.dodiya1@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "KD\\Wallet\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "KD\\Wallet\\Tests\\": "tests"
+    }
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "KD\\Wallet\\WalletServiceProvider"
+      ],
+      "aliases": {
+        "Wallet": "KD\\Wallet\\WalletFacade"
+      }
+    }
+  }
+}
