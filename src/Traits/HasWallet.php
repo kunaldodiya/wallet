@@ -83,24 +83,21 @@ trait HasWallet
     protected function processTransaction($transactionId, $forceWithdraw = false)
     {
         $transaction = Transaction::where(['transaction_id' => $transactionId])->first();
+
         $canWithdraw = $forceWithdraw ? true : $this->canWithdraw($transaction['amount']);
 
         if ($transaction['status'] === "pending") {
             if ($transaction['transaction_type'] == 'deposit') {
-                $updateTransaction = $transaction->update(['status' => true]);
-
                 $transaction->wallet->balance = $transaction->wallet->balance + $transaction['amount'];
                 $transaction->wallet->save();
             }
 
             if ($transaction['transaction_type'] == 'withdraw' && $canWithdraw) {
-                $updateTransaction = $transaction->update(['status' => $canWithdraw]);
-
                 $transaction->wallet->balance = $transaction->wallet->balance - $transaction['amount'];
                 $transaction->wallet->save();
             }
 
-            return $transaction;
+            $transaction->update(['status' => $canWithdraw ? 'success' : 'failed']);
         }
 
         return $transaction;
