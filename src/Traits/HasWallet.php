@@ -1,8 +1,10 @@
-<?php namespace KD\Wallet\Traits;
+<?php
+
+namespace KD\Wallet\Traits;
 
 use KD\Wallet\Models\Transaction;
 use KD\Wallet\Models\Wallet;
-use KD\Wallet\Events\UserWasCreated;
+use Illuminate\Support\Str;
 
 trait HasWallet
 {
@@ -71,7 +73,7 @@ trait HasWallet
             ->create([
                 'user_id' => $this->id,
                 'amount' => $amount,
-                'transaction_id' => str_random(32),
+                'transaction_id' => Str::random(32),
                 'transaction_type' => $type,
                 'status' => 'pending',
                 'meta' => $meta
@@ -104,4 +106,3 @@ trait HasWallet
         return $transaction;
     }
 }
-
