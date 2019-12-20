@@ -22,7 +22,7 @@ class WalletServiceProvider extends ServiceProvider
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__ . '/../config/config.php' => config_path('wallet.php'),
+                __DIR__ . '/../config/wallet.php' => config_path('wallet.php'),
             ], 'config');
             $this->publishes([
                 __DIR__ . '/../resources/views' => resource_path('views/vendor/wallet'),
@@ -43,7 +43,7 @@ class WalletServiceProvider extends ServiceProvider
     public function register()
     {
         // Automatically apply the package configuration
-        $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'wallet');
+        $this->mergeConfigFrom(__DIR__ . '/../config/wallet.php', 'wallet');
         // Register the main class to use with the facade
         $this->app->singleton('wallet', function () {
             return new Wallet;
