@@ -7,23 +7,6 @@ use KD\Wallet\Models\Wallet;
 
 class WalletServiceProvider extends ServiceProvider
 {
-    // public function boot()
-    // {
-    //     $this->loadRoutesFrom(__DIR__ . '/routes/web.php');
-    //     $this->loadViewsFrom(__DIR__ . '/resources/views', 'wallet');
-    //     $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
-
-    //     $this->publishes([
-    //         __DIR__ . '/config/wallet.php' => config_path('wallet.php'),
-    //     ], 'config');
-    // }
-
-    // public function register()
-    // {
-    //     $this->mergeConfigFrom(__DIR__ . '/config/wallet.php', 'wallet');
-    // }
-
-
     /**
      * Bootstrap the application services.
      */
@@ -32,7 +15,7 @@ class WalletServiceProvider extends ServiceProvider
         /*
          * Optional methods to load your package assets
          */
-        // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'hello');
+        $this->loadTranslationsFrom(__DIR__ . '/../resources/lang', 'wallet');
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'wallet');
         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
         $this->loadRoutesFrom(__DIR__ . '/routes');
@@ -41,18 +24,15 @@ class WalletServiceProvider extends ServiceProvider
             $this->publishes([
                 __DIR__ . '/../config/config.php' => config_path('wallet.php'),
             ], 'config');
-            // Publishing the views.
-            /*$this->publishes([
-                __DIR__.'/../resources/views' => resource_path('views/vendor/hello'),
-            ], 'views');*/
-            // Publishing assets.
-            /*$this->publishes([
-                __DIR__.'/../resources/assets' => public_path('vendor/hello'),
-            ], 'assets');*/
-            // Publishing the translation files.
-            /*$this->publishes([
-                __DIR__.'/../resources/lang' => resource_path('lang/vendor/hello'),
-            ], 'lang');*/
+            $this->publishes([
+                __DIR__ . '/../resources/views' => resource_path('views/vendor/wallet'),
+            ], 'views');
+            $this->publishes([
+                __DIR__ . '/../resources/assets' => public_path('vendor/wallet'),
+            ], 'assets');
+            $this->publishes([
+                __DIR__ . '/../resources/lang' => resource_path('lang/vendor/wallet'),
+            ], 'lang');
             // Registering package commands.
             // $this->commands([]);
         }
