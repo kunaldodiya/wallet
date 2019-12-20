@@ -26,7 +26,7 @@ class CreateWalletTransactionsTable extends Migration
             $table->string('transaction_id');
             $table->string('transaction_type');
             $table->string('status');
-            $table->text('meta')->nullable();
+            $table->json('meta')->nullable();
 
             $table->timestamps();
         });
