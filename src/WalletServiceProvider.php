@@ -42,9 +42,7 @@ class WalletServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        // Automatically apply the package configuration
         $this->mergeConfigFrom(__DIR__ . '/../config/wallet.php', 'wallet');
-        // Register the main class to use with the facade
         $this->app->singleton('wallet', function () {
             return new Wallet;
         });
