@@ -18,7 +18,7 @@ class WalletServiceProvider extends ServiceProvider
         $this->loadTranslationsFrom(__DIR__ . '/../resources/lang', 'wallet');
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'wallet');
         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
-        $this->loadRoutesFrom(__DIR__ . '/routes');
+        // $this->loadRoutesFrom(__DIR__ . '/routes');
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
