@@ -55,10 +55,12 @@ $transaction = $user->createTransaction(100, 'deposit', ['description' => 'trans
 $user->deposit($transaction->transaction_id);
 $user->balance; // 100
 
-$user->withdraw(50);
+$transaction = $user->createTransaction(50, 'withdraw', ['description' => 'transaction description'])
+$user->withdraw($transaction->transaction_id);
 $user->balance; // 50
 
-$user->forceWithdraw(200);
+$transaction = $user->createTransaction(200, 'withdraw', ['description' => 'transaction description'])
+$user->forceWithdraw($transaction->transaction_id);
 $user->balance; // -150
 ```
 
