@@ -2,8 +2,8 @@
 
 namespace KD\Wallet\Models;
 
-use App\Traits\HasUuid;
 use Illuminate\Database\Eloquent\Model;
+use Jamesh\Uuid\HasUuid;
 
 class Wallet extends Model
 {

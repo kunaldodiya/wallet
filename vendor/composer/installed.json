@@ -457,6 +457,50 @@
         ]
     },
     {
+        "name": "jamesh/laravel-uuid",
+        "version": "v1.0.4",
+        "version_normalized": "1.0.4.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/JamesHemery/laravel-uuid.git",
+            "reference": "740db50c5a21c84da1583f652d484a7d7db9564d"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/JamesHemery/laravel-uuid/zipball/740db50c5a21c84da1583f652d484a7d7db9564d",
+            "reference": "740db50c5a21c84da1583f652d484a7d7db9564d",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/database": "^5.7|^5.8|^6.0|^7",
+            "illuminate/support": "^5.7|^5.8|^6.0|^7",
+            "php": "^7.2"
+        },
+        "require-dev": {
+            "orchestra/testbench": "~3.7.0|~3.8.0",
+            "phpunit/phpunit": "^7.0|^8.0"
+        },
+        "time": "2020-03-08T11:31:19+00:00",
+        "type": "plugin",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Jamesh\\Uuid\\": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "James Hemery",
+                "email": "hello@james-hemery.pro"
+            }
+        ],
+        "description": "Eloquent UUID Trait for Laravel 5.7, 5.8 and 6.0."
+    },
+    {
         "name": "laravel/framework",
         "version": "v5.8.36",
         "version_normalized": "5.8.36.0",

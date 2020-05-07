@@ -43,6 +43,7 @@ return array(
     'League\\Flysystem\\' => array($vendorDir . '/league/flysystem/src'),
     'KD\\Wallet\\Tests\\' => array($baseDir . '/tests'),
     'KD\\Wallet\\' => array($baseDir . '/src'),
+    'Jamesh\\Uuid\\' => array($vendorDir . '/jamesh/laravel-uuid/src'),
     'Illuminate\\' => array($vendorDir . '/laravel/framework/src/Illuminate'),
     'Faker\\' => array($vendorDir . '/fzaninotto/faker/src/Faker'),
     'Egulias\\EmailValidator\\' => array($vendorDir . '/egulias/email-validator/EmailValidator'),

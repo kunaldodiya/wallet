@@ -90,6 +90,10 @@ class ComposerStaticInit2bcc1ac878ce6ad5857dbf59041f093e
             'KD\\Wallet\\Tests\\' => 16,
             'KD\\Wallet\\' => 10,
         ),
+        'J' => 
+        array (
+            'Jamesh\\Uuid\\' => 12,
+        ),
         'I' => 
         array (
             'Illuminate\\' => 11,
@@ -267,6 +271,10 @@ class ComposerStaticInit2bcc1ac878ce6ad5857dbf59041f093e
         'KD\\Wallet\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
+        ),
+        'Jamesh\\Uuid\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/jamesh/laravel-uuid/src',
         ),
         'Illuminate\\' => 
         array (
