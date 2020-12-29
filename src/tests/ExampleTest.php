@@ -1,6 +1,6 @@
-<?php 
+<?php
 
-namespace Spatie\Skeleton\Tests;
+namespace KD\Wallet\Tests;
 
 use PHPUnit\Framework\TestCase;
 
